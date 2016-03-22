@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 /nbproject
+
+# Ignore Spring files.
+/spring/*.pid
