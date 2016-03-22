@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use Bootstrap
 gem 'bootstrap-sass', '3.2.0.0'
+# Use bcrypt for password hashing
+gem 'bcrypt', '3.1.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
