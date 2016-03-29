@@ -5,12 +5,12 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     ActionMailer::Base.deliveries.clear
     @user = users(:michael)
   end
-  
-  test "password resets" do
+
+  test 'password resets' do
     get new_password_reset_path
     assert_template 'password_resets/new'
     # Invalid email
-    post password_resets_path, password_reset: { email: "" }
+    post password_resets_path, password_reset: { email: '' }
     assert_not flash.empty?
     assert_template 'password_resets/new'
     # Valid email
@@ -22,7 +22,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     # Password reset form
     user = assigns(:user)
     # Wrong email
-    get edit_password_reset_path(user.reset_token, email: "")
+    get edit_password_reset_path(user.reset_token, email: '')
     assert_redirected_to root_url
     # Inactive user
     user.toggle!(:activated)
@@ -34,19 +34,19 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     # Right email, eight token
     get edit_password_reset_path(user.reset_token, email: user.email)
     assert_template 'password_resets/edit'
-    assert_select "input[name=email][type=hidden][value=?]", user.email
+    assert_select 'input[name=email][type=hidden][value=?]', user.email
 
     # Invalid password & confirmation
     patch password_reset_path(user.reset_token),
           email: user.email,
-          user: { password: "foobaz",
-                  password_confirmation: "barquux" }
+          user: { password: 'foobaz',
+                  password_confirmation: 'barquux' }
     assert_select 'div#error_explanation'
     # Valid password & confirmation
     patch password_reset_path(user.reset_token),
           email: user.email,
-          user: { password: "foobaz",
-                  password_confirmation: "foobaz" }
+          user: { password: 'foobaz',
+                  password_confirmation: 'foobaz' }
     assert is_logged_in?
     assert_not flash.empty?
     assert_redirected_to user
