@@ -1,0 +1,9 @@
+# Enables Rails cops
+Rails:
+  Enabled: true
+
+# Exclude auto-generated files
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/*'
