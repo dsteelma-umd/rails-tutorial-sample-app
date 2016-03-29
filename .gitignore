@@ -25,3 +25,6 @@
 
 # Ignore uploaded test images.
 /public/uploads
+
+# Ignore reports directory (used by Rubocop
+reports
