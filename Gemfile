@@ -1,5 +1,7 @@
-  source 'https://rubygems.org'
+source 'https://rubygems.org'
 
+#ruby=ruby-2.2.4
+#ruby-gemset=sample-app
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
